@@ -1,0 +1,27 @@
+# LEE EXPERIMENTS :technologist: :woman_technologist:
+
+_This project is a version for experiments of the "Laboratorio de Economía Experimental y del Comportamiento (LEE)" :card_index_dividers:_
+
+## Getting Started :flight_departure:
+
+_You will find new versions projects dedicated to research and education used during the laboratory classes_
+
+## Software build :desktop_computer:
+_The tools used are:_
+
+* [oTree](https://otree.readthedocs.io/en/latest/index.html) - `5.8.2` -El framework web usado
+* [Python](https://www.python.org/) -`3.9.6`- Manejador de dependencias
+
+## Contributors :star2:
+
+* **Tatiana Yepez Vera** - *junior developer* - [tati-18](https://github.com/tati-18)
+
+## Licencia :page_facing_up:
+
+Este proyecto está bajo la Licencia - mira el archivo [LICENSE.md](LICENSE.md) para detalles
+
+## Acknowledgments :man_scientist: 	:woman_scientist:
+
+* Share this project with others :arrow_right:
+* Inspiration :rainbow:
+* etc
