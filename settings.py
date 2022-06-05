@@ -24,10 +24,6 @@ SESSION_CONFIGS = [
     
 ]
 
-# if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
-# in SESSION_CONFIGS, except those that explicitly override it.
-# the session config can be accessed from methods in your apps as self.session.config,
-# e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
@@ -50,7 +46,20 @@ ROOMS = [
         display_name='Econ 101 class',
         participant_label_file='_rooms/econ101.txt',
     ),
-    dict(name='live_demo', display_name='Room for live demo (no participant labels)'),
+
+    dict(
+        name='econ102',
+        display_name='Econ 102 class',
+        participant_label_file='_rooms/econ102.txt',
+        use_secure_urls=True
+    ),
+    dict(
+        name='econ103',
+        display_name='Econ 103 class',
+        participant_label_file='_rooms/econ103.txt',
+        use_secure_urls=True
+    )
+
 ]
 
 ADMIN_USERNAME = 'admin'
