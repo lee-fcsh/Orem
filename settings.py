@@ -24,6 +24,7 @@ SESSION_CONFIGS = [
     
 ]
 
+
 SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
 )
@@ -45,6 +46,7 @@ ROOMS = [
         display_name='Econ 101 class',
         participant_label_file='_rooms/econ101.txt',
     ),
+
     dict(
         name='econ102',
         display_name='Econ 102 class',
@@ -57,6 +59,7 @@ ROOMS = [
         participant_label_file='_rooms/econ103.txt',
         use_secure_urls=True
     )
+
 ]
 
 ADMIN_USERNAME = 'admin'
