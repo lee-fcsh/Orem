@@ -88,5 +88,5 @@ class ResultsWaitPage(WaitPage):
 
 class Results(Page):
     """Class representing a result""" 
-
+    
 page_sequence = [Send, WaitForP1, SendBack, ResultsWaitPage, Results]
