@@ -1,3 +1,4 @@
+"""Module environ."""
 from os import environ
 
 
