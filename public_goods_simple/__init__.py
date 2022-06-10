@@ -29,6 +29,8 @@ class Player(BasePlayer):
         min=0, max=C.ENDOWMENT, label="How much will you contribute?"
     )
 
+class Subsession(BaseSubsession):
+    """Class representing a S"""
 
 # FUNCTIONS
 def set_payoffs(group: Group):

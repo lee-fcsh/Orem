@@ -12,7 +12,6 @@ class C(BaseConstants):
     ENDOWMENT = cu(10)
     MULTIPLIER = 3
 
-
 class Subsession(BaseSubsession):
     "Classes needed for the experiment"
     pass
@@ -60,11 +59,13 @@ def set_payoffs(group: Group):
 
 # PAGES
 class Send(Page):
+    """Class representing a Send"""
     form_model = 'group'
     form_fields = ['sent_amount']
 
     @staticmethod
-    def is_displayed(player: Player):
+    def displayed(player: Player):
+        """Function displayed."""
         return player.id_in_group == 1
 
 
@@ -74,6 +75,7 @@ class WaitForP1(WaitPage):
 
 
 class SendBack(Page):
+    """Class representing a SendBack"""
     form_model = 'group'
     form_fields = ['sent_back_amount']
 
