@@ -1,9 +1,9 @@
 "Module to create the app in Otree, experimental economy functions are developed."
 from otree.api import *
 
-doc = "Survey Economy Experiment"
+DOC = "Survey Economy Experiment"
 
-class C(BaseConstants):
+class C(BaseConstants): # pylint: disable=locally-disabled, invalid-name
     "constants for the game Survey"
     NAME_IN_URL = 'survey'
     PLAYERS_PER_GROUP = None
@@ -12,12 +12,10 @@ class C(BaseConstants):
 
 class Subsession(BaseSubsession):
     "Classes needed for the experiment"
-    pass
 
 
 class Group(BaseGroup):
     "Classes needed for the experiment"
-    pass
 
 
 class Player(BasePlayer):
@@ -37,7 +35,5 @@ class Survey(Page):
 class Results(Page):
     "this class fills the results page, return none"
     form_model = 'player'
-   
-
 
 page_sequence = [Survey, Results]

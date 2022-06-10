@@ -1,9 +1,9 @@
 "Module to create the app in Otree, experimental economy functions are developed."
 from otree.api import *
 
-doc = 'Public Good Economy Experiment'
+DOC = 'Public Good Economy Experiment'
 
-class C(BaseConstants):
+class C(BaseConstants): # pylint: disable=locally-disabled, invalid-name
     "constants for the public good simple"
     NAME_IN_URL = 'public_goods_simple'
     PLAYERS_PER_GROUP = 3
@@ -14,7 +14,6 @@ class C(BaseConstants):
 
 class Subsession(BaseSubsession):
     "Classes needed for the experiment"
-    pass
 
 
 class Group(BaseGroup):
@@ -29,8 +28,7 @@ class Player(BasePlayer):
         min=0, max=C.ENDOWMENT, label="How much will you contribute?"
     )
 
-class Subsession(BaseSubsession):
-    """Class representing a S"""
+
 
 # FUNCTIONS
 def set_payoffs(group: Group):
@@ -40,13 +38,13 @@ def set_payoffs(group: Group):
     Return:None
     """
     players = group.get_players()
-    contributions = [p.contribution for p in players]
+    contributions = [element.contribution for element in players]
     group.total_contribution = sum(contributions)
     group.individual_share = (
         group.total_contribution * C.MULTIPLIER / C.PLAYERS_PER_GROUP
     )
-    for p in players:
-        p.payoff = C.ENDOWMENT - p.contribution + group.individual_share
+    for element in players:
+        element.payoff = C.ENDOWMENT - element.contribution + group.individual_share
 
 
 # PAGES
@@ -63,8 +61,8 @@ class ResultsWaitPage(WaitPage):
 
 
 class Results(Page):
-   "This page contains the result"
-   form_model = 'player'
+    "This page contains the result"
+    form_model = 'player'
 
 
 page_sequence = [Contribute, ResultsWaitPage, Results]
