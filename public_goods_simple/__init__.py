@@ -1,3 +1,4 @@
+#pylint: disable=import-error
 "Module to create the app in Otree, experimental economy functions are developed."
 from otree.api import *
 
