@@ -1,9 +1,11 @@
-from pydoc import doc
+#pylint: disable=import-error
+"Module to create the app in Otree, experimental economy functions are developed."
 from otree.api import *
 
-doc = 'Description'
+DOC = 'Public Good Economy Experiment'
 
-class C(BaseConstants):
+class C(BaseConstants): # pylint: disable=locally-disabled, invalid-name
+    "constants for the public good simple"
     NAME_IN_URL = 'public_goods_simple'
     PLAYERS_PER_GROUP = 3
     NUM_ROUNDS = 1
@@ -12,45 +14,56 @@ class C(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
+    "Classes needed for the experiment"
 
 
 class Group(BaseGroup):
+    "This class contains the participants of the game with your total of contributions, return none"
     total_contribution = models.CurrencyField()
     individual_share = models.CurrencyField()
 
 
 class Player(BasePlayer):
+    "this class contains the amount the player can contribute, return none"
     contribution = models.CurrencyField(
         min=0, max=C.ENDOWMENT, label="How much will you contribute?"
     )
 
 
+
 # FUNCTIONS
 def set_payoffs(group: Group):
+    """
+    function so that they can calculate the payments of the players
+    arguments: group: Group
+    Return:None
+    """
     players = group.get_players()
-    contributions = [p.contribution for p in players]
+    contributions = [element.contribution for element in players]
     group.total_contribution = sum(contributions)
     group.individual_share = (
         group.total_contribution * C.MULTIPLIER / C.PLAYERS_PER_GROUP
     )
-    for p in players:
-        p.payoff = C.ENDOWMENT - p.contribution + group.individual_share
+    for element in players:
+        element.payoff = C.ENDOWMENT - element.contribution + group.individual_share
 
 
 # PAGES
 class Contribute(Page):
+    "Form page for contributions, return none"
     form_model = 'player'
     form_fields = ['contribution']
 
 
 
 class ResultsWaitPage(WaitPage):
+    "This function waits for other players to respond, return none"
     after_all_players_arrive = set_payoffs
 
 
 class Results(Page):
-   form_model = 'player'
+    "This page contains the result"
+    form_model = 'player'
 
 
 page_sequence = [Contribute, ResultsWaitPage, Results]

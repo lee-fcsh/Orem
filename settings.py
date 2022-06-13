@@ -1,3 +1,5 @@
+"""Module environ."""
+
 from os import environ
 
 
@@ -20,8 +22,6 @@ SESSION_CONFIGS = [
         app_sequence=['trust'],
         num_demo_participants=2,
     ),
-
-    
 ]
 
 
@@ -46,7 +46,6 @@ ROOMS = [
         display_name='Econ 101 class',
         participant_label_file='_rooms/econ101.txt',
     ),
-
     dict(
         name='econ102',
         display_name='Econ 102 class',
@@ -59,7 +58,6 @@ ROOMS = [
         participant_label_file='_rooms/econ103.txt',
         use_secure_urls=True
     )
-
 ]
 
 ADMIN_USERNAME = 'admin'
